@@ -39,28 +39,28 @@ boards = [
 [7, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 8]
          ]
 
-def drawMap(width, height, screen):
+def drawMap(width, height, screen, board):
     pixelWidth = (width // 30)
     pixelHeight = ((height - 50) // 32)
 
-    for i in range(len(boards)):
-        for j in range(len(boards[i])):
-            if boards[i][j] == 1:
+    for i in range(len(board)):
+        for j in range(len(board[i])):
+            if board[i][j] == 1:
                 pygame.draw.circle(screen, "white", (j * pixelWidth + (0.5 * pixelWidth), i * pixelHeight + (0.5 * pixelHeight)), 4)
-            if boards[i][j] == 2:
+            if board[i][j] == 2:
                 pygame.draw.circle(screen, "white", (j * pixelWidth + (0.5 * pixelWidth), i * pixelHeight + (0.5 * pixelHeight)), 10)
-            if boards[i][j] == 3:
+            if board[i][j] == 3:
                 pygame.draw.line(screen, "blue", (j * pixelWidth + (0.5 * pixelWidth), i * pixelHeight), (j * pixelWidth + (0.5 * pixelWidth), i * pixelHeight + pixelHeight))
-            if boards[i][j] == 4:
+            if board[i][j] == 4:
                 pygame.draw.line(screen, "blue", (j * pixelWidth, i * pixelHeight + (0.5 * pixelHeight)), (j * pixelWidth + pixelWidth, i * pixelHeight + (0.5 * pixelHeight)))
-            if boards[i][j] == 5:
+            if board[i][j] == 5:
                 pygame.draw.arc(screen, "blue", [j * pixelWidth - (pixelWidth * 0.5), i * pixelHeight + (0.5 * pixelHeight), pixelWidth, pixelHeight], 0, math.pi/2)
-            if boards[i][j] == 6:
+            if board[i][j] == 6:
                 pygame.draw.arc(screen, "blue", [j * pixelWidth + (pixelWidth * 0.5), i * pixelHeight + (0.5 * pixelHeight), pixelWidth, pixelHeight], math.pi/2, math.pi)
-            if boards[i][j] == 7:
+            if board[i][j] == 7:
                 pygame.draw.arc(screen, "blue", [j * pixelWidth + (pixelWidth * 0.5), i * pixelHeight - (0.5 * pixelHeight), pixelWidth, pixelHeight], math.pi, (3 * math.pi) / 2)
-            if boards[i][j] == 8:
+            if board[i][j] == 8:
                 pygame.draw.arc(screen, "blue", [j * pixelWidth - (pixelWidth * 0.5), i * pixelHeight - (0.5 * pixelHeight), pixelWidth, pixelHeight], (3 * math.pi) / 2, 2 * math.pi)
-            if boards[i][j] == 9:
+            if board[i][j] == 9:
                 pygame.draw.line(screen, "white", (j * pixelWidth, i * pixelHeight + (0.5 * pixelHeight)), (j * pixelWidth + pixelWidth, i * pixelHeight + (0.5 * pixelHeight)))
 

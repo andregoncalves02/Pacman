@@ -1,6 +1,7 @@
 # Example file showing a basic pygame "game loop"
+import copy
 import pygame
-from map import drawMap
+from map import drawMap, boards
 from pacman import Pacman
 
 # pygame setup
@@ -12,6 +13,10 @@ screen = pygame.display.set_mode((screen_width, screen_height))
 clock = pygame.time.Clock()
 running = True
 player = Pacman()
+mapa = copy.deepcopy(boards)
+
+
+
 
 while running:
     # poll for events
@@ -27,11 +32,13 @@ while running:
         counter += 1
     else:
         counter = 0
-
+    player.check_wall(mapa, screen_width,screen_height)
+    player.move_player()
     
     screen.fill("black")
-    drawMap(screen_width, screen_height, screen)
+    drawMap(screen_width, screen_height, screen, mapa)
     player.draw_player(counter, screen)
+    
 
 
     # RENDER YOUR GAME HERE
